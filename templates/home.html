@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Web App</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+				<h5 class="display-5">Search here!</h5>
+				<form action="/search" method="POST">
+		            <div class="form-group">
+		                <label for="city">City Name</label>
+		                <input type="text" id="city" name="city" class="form-control" placeholder="Please enter the city" required>
+		            </div>
+		            <div class="form-group">
+		                <label for="cuisine">Cuisine</label>
+		                <input type="text" id="cuisine" name="cuisine" class="form-control" placeholder="Any specific cuisine you craving?">
+		                <small id="cuisine_help" class="form-text text-muted">Example: Indian, Chinese, Mughali</small>
+		            </div>
+		            <button type="submit" class="btn btn-primary">Search!</button>
+		        </form>
+			</div>
+			<div class="col-6">
+				<ul>
+					{% if data%}
+						{% for item in data%}
+							<div class="card">
+							  <div class="card-header">
+							    {{ item['name'] }} || <a class="text-success">{{ item['cost_for_two'] }}</a> || {{ item['cuisine'] }}
+							  </div>
+							  <div class="card-body">
+							    <p class="card-text"><a class="text-info">Address:</a>{{ item['address'] }}</p>
+							  </div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<div class="container">
+							<h1 class="display-5">Search for some restaurants!</h1>
+						</div>
+					{% endif%}
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
