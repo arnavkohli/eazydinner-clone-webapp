@@ -10,7 +10,7 @@
 
 Hosted on a EC2 instance 
 
-_Home Page_ : http://ec2-18-222-18-167.us-east-2.compute.amazonaws.com/
+_Home Page_ : http://ec2-18-222-18-167.us-east-2.compute.amazonaws.com/ (_down_)
 
 ## Local Setup
 
